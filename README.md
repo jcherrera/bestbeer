@@ -19,7 +19,7 @@
  *"The perfect beer for you"*
 
 **Motivation:** 
-  We want good beer
+  We want good beer, this application will help us by suggesting beers based on our taste profile!
   
 **Risks:** 
   No experience with java script
