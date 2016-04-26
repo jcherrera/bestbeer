@@ -65,8 +65,10 @@ ABVInd = 0;
 for i in range(0,(len(trs)-1)):
 	if 'Bitterness' in str(trs[i]):
 		BittInd = i
+		# Add check for predictions
 	if 'ABV' in str(trs[i]):
 		ABVInd = i;
+		# Add check for predictions
 out = str((trs[BittInd].find_all('td'))[0])+'\n' + str((trs[ABVInd].find_all('td'))[0])
 regex = re.compile('<.{0,4}>')
 print regex.sub('',out)
