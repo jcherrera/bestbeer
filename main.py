@@ -8,7 +8,7 @@ session = UserSession()
 
 def bb_login():
 	while session.user == None:
-		option = input("-  Welcome to the Better Beer!\n-  1: Login\n-  2: Signup\n>> ")
+		option = input(" - Welcome to the Better Beer! -\n1: Login\n2: Signup\n3: Exit\n>> ")
 	
 	
 		if option == 1:
@@ -24,16 +24,19 @@ def bb_login():
 			password = raw_input("password: ")
 			session.connect_to_db()
 			session.sign_up_user(username, password)
+
+		else:
+			quit()
 	
 	print "\nHello " + username + "!\n"
 
 
 def bb_search():
-	search = raw_input("search: ")
+	search = raw_input("\nsearch: ")
 	links = search_for_beer(search)
 	
 	#Prompts the user to pick one of the beers that appeared from the search
-	print 'Which beer recipe do you want to choose? Type in the appropriate number, from 1 to ' + str(len(links))
+	print '\nWhich beer recipe do you want to choose? Type in the appropriate number, from 1 to ' + str(len(links))
 
 	iterator=1
 	parser = []
@@ -43,7 +46,7 @@ def bb_search():
 
 	#Loops until an appropriate response to the promt is given
 	while(True):
-		response = input()
+		response = input(">> ")
 		if isinstance(response, int) and response>=1 and response<=len(links):
 			search = links[response-1]
 			break
@@ -53,43 +56,43 @@ def bb_search():
 	bittind = display_beer_info(search)
 
 	beer_name = url_to_beer_name(search)
-	print "CHECK"
-	print beer_name
-	time.sleep(2)
 
 	rating = session.get_beer_rating(beer_name)
 
 	if rating:
-		print "Your rating:\t" + rating[1] + " / 10"
+		print "Your rating:\t" + str(rating) + " / 10"
 	else:
-		rate = raw_input("Would you like to rate this beer?(y/n)\n>> ")
+		rate = raw_input("\nWould you like to rate this beer?(y/n)\n>> ")
 		if rate == 'y':
 			while(True):
-				user_rating = input("Rating(out of 10): ")
-				if isinstance(user_rating, int) and user_rating > -1 and user_rating < 11:
-					session.rate_beer(beer_name, user_rating)
+				rating = input("\nRating(out of 10): ")
+				if isinstance(rating, int) and rating > -1 and rating < 11:
+					session.rate_beer(beer_name, rating)
 					break
 				else:
 					print "Invalid response, try again."
 			
-			if user_rating > 6:
-				suggestion = get_similar_beer(bittind)
-				print "You really enjoyed this beer!" + suggestion
+	if rating > 6:
+		suggestion = get_similar_beer(bittind)
+		print "\nYou really enjoyed this beer! " + suggestion
 				
+	raw_input ("\nPress enter to continue...")
 		
 	
 def bb_favorites():
 	
 	ratings = session.get_favorites()
 	
-	print(" - Favorite Beers -")
+	print("\n - Favorite Beers -")
 
 	if(ratings):
 		print "Beer\t\tRating"
 		for rating in ratings:
-			print rating[0] + "\t\t" + str(rating[1]) + " / 10"
+			print rating[0] + "\t" + str(rating[1]) + " / 10"
 	else:
 		print "No beers rated above 6 / 10"
+
+	raw_input ("\nPress enter to continue...")
 
 def main():
 

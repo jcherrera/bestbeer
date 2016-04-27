@@ -127,7 +127,7 @@ class UserSession:
     def get_beer_rating(self, beer_name):
         
         cur = self.active_conn.cursor()
-        check_query = """SELECT rating  FROM ratings WHERE user_id={} AND UPPER(beer_name) LIKE UPPER('%{}%') """.format(self.user.id, beer_name)
+        check_query = """SELECT rating FROM ratings WHERE user_id={} AND UPPER(beer_name) LIKE UPPER('%{}%') """.format(self.user.id, beer_name)
 
         self.logger.log_command(check_query)
         cur.execute(check_query)
@@ -135,7 +135,10 @@ class UserSession:
 
         rating = cur.fetchone()
 
-        return rating
+        if rating:
+            return rating[0]
+        else:
+            return None
 
 
     def rate_beer(self, beer_name, rating):

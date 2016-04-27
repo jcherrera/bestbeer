@@ -1,10 +1,12 @@
-[27/04/2016] [00:19:34] - Session started
-[00:19:43] Connecting to database
-Completed in 0.004347 seconds
-[00:19:43] SELECT DISTINCT * FROM users WHERE UPPER(username) LIKE UPPER('%user4%') 
-Completed in 0.000168 seconds
-[00:19:43] SELECT DISTINCT id FROM accounts WHERE id=5433
-Completed in 0.000161 seconds
-[00:19:44] User successfully logged in
-[00:19:48] SELECT * FROM ratings WHERE user_id=2356 AND rating > 6 
-Completed in 0.000208 seconds
+[27/04/2016] [00:54:34] - Session started
+[00:54:41] Connecting to database
+Completed in 0.004942 seconds
+[00:54:42] SELECT DISTINCT * FROM users WHERE UPPER(username) LIKE UPPER('%user4%') 
+Completed in 0.000207 seconds
+[00:54:42] SELECT DISTINCT id FROM accounts WHERE id=5433
+Completed in 0.000179 seconds
+[00:54:42] User successfully logged in
+[00:55:10] SELECT rating FROM ratings WHERE user_id=2356 AND UPPER(beer_name) LIKE UPPER('%Budgetbeer%') 
+Completed in 0.000158 seconds
+[00:55:29] INSERT INTO ratings VALUES ('Budgetbeer', 8, 2356);
+Completed in 0.000183 seconds

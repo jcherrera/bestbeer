@@ -37,7 +37,7 @@ def display_beer_info(search):
 	#Extracts the html of the chosen beer url are stores it into html.
 	html = urllib2.urlopen(search)
 	soup = BeautifulSoup(html.read())
-	print '\n' + url_to_beer_name(search) + '\n'
+	print '\n - ' + url_to_beer_name(search) + ' -\n'
 
 	#Finds the Bitterness and ABV values for the appropriate beer and prints it out
 	trs = soup.find_all('tr')
@@ -62,4 +62,4 @@ def get_similar_beer(BittInd):
 	if BittInd == 22.8:
 		suggestion = "You Should try a Heineken"
 	
-	print suggestion	
+	return suggestion	
