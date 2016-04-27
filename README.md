@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/jcherrera/bestbeer.svg?branch=master)](https://travis-ci.org/jcherrera/bestbeer)
 # Better Beer
 ## 3308-Team-Project
 
