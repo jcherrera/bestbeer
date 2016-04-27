@@ -1,0 +1,10 @@
+[26/04/2016] [23:41:54] - Session started
+[23:42:07] Connecting to database
+Completed in 0.003798 seconds
+[23:42:08] SELECT DISTINCT * FROM users WHERE UPPER(username) LIKE UPPER('%user4%') 
+Completed in 0.000175 seconds
+[23:42:08] SELECT DISTINCT id FROM accounts WHERE id=5433
+Completed in 0.000142 seconds
+[23:42:08] User successfully logged in
+[23:42:12] SELECT * FROM ratings WHERE user_id=2356 AND rating > 6 
+Completed in 0.000222 seconds
