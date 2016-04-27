@@ -47,7 +47,7 @@ for link in links:
 
 #Loops until an appropriate response to the promt is given
 while(True):
-	response = input()
+	response = input("Enter response here: ")
 	if isinstance(response, int) and response>=1 and response<=len(links):
 		search = links[response-1]
 		break
