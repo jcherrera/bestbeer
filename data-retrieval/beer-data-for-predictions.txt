@@ -1,79 +1,20 @@
-Heineken
-Bitterness: 18.0 IBUs
-ABV: 4.4%
-
-Lados Ipa
-Bitterness: 40.5 IBUs
-ABV: 5.3%
-
-Corona
-Bitterness: 17.1 IBUs
-ABV: 4.7%
-
-87 Peroni Pilsner
-Bitterness: 29.8 IBUs
-ABV: 4.9%
-
-Caskolsch Pale Ale
-Bitterness: 34.6 IBUs
-ABV: 5.4%
-
-Coors Lite
-Bitterness: 13.2 IBUs
-ABV: 3.2%
-
-Asahi 
-Bitterness: 32.5 IBUs
-ABV: 4.6%
-
-Miller German Pilsener
-Bitterness: 26.8 IBUs
-ABV: 4.5%
-
-Caskolsch Pale Ale
-Bitterness: 34.6 IBUs
-ABV: 5.4%
-
-Sm Skol Fredrik Jonsson
-Bitterness: 46.7 IBUs
-ABV: 6.6%
-
-Grand Cru
-Bitterness: 13.5 IBUs
-ABV: 9.4%
-
-Saison De La Place
-Bitterness: 36.4 IBUs
-ABV: 5.2%
-
-Saison
-Bitterness: 27.5 IBUs
-ABV: 8.9%
-
-How Rye Am I
-Bitterness: 25.1 IBUs
-ABV: 8.0%
-
-First Snow
-Bitterness: 36.9 IBUs
-ABV: 9.0%
-
-Walts Sam Adams Octoberfest
-Bitterness: 16.2 IBUs
-ABV: 5.4%
-
-Becks Clone
-Bitterness: 29.6 IBUs
-ABV: 5.4%
-
-The Millers Toll
-Bitterness: 56.7 IBUs
-ABV: 9.9%
-
-Keystone
-Bitterness: 12.2 IBUs
-ABV: 4.9%
-
-Natural Redhead
-Bitterness: 23.6 IBUs
-ABV: 5.8%
+Heineken,18.0,4.4
+Lados Ipa,40.5,5.3
+Corona,17.1,4.7
+87 Peroni Pilsner,29.8,4.9
+Caskolsch Pale Ale,34.6,ABV
+Coors Lite,13.2,3.2
+Asahi,32.5,4.6
+Miller German Pilsener,26.8,4.5
+Caskolsch Pale Ale,34.6,5.4
+Sm Skol Fredrik Jonsson,46.7,6.6
+Grand Cru,13.5,9.4
+Saison De La Place,36.4,5.2
+Saison,27.5,8.9
+How Rye Am I,25.1,8.0
+First Snow,36.9,9.0
+Walts Sam Adams Octoberfest,16.2,5.4
+Becks Clone,29.6,5.4
+The Millers Toll,56.7,9.9
+Keystone,12.2,4.9
+Natural Redhead,23.6,5.8
