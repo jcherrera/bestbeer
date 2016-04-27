@@ -74,7 +74,6 @@ BittInd= float(re.search(r'\d+\.\d',temp).group())
 temp = str(trs[ABVInd].find_all('td')[0])
 ABVInd = float(re.search(r'\d+\.\d',temp).group())
 
-
 #Find a similar beer
 beerinfile = 0;
 totalDiff = 100000;
@@ -83,20 +82,20 @@ searchFile = open('beer-data-for-predictions.txt','r+')
 for line in searchFile:
 	if(~(beer_name in line)):
 		beerinfile = 1
-	index = line.index(',')
-	abvtemp=float(line[index+6:])
-	print abvtemp
-	ibutemp=float(line[index+1: index+4])
+	my_list = line.split(",")
+	abvtemp=float(my_list[2])
+	ibutemp=float(my_list[1])
 	diff = abs(10*(ABVInd-abvtemp)+(BittInd-abvtemp))
 	if(diff<totalDiff):
-		suggestion = line[:index]
+		suggestion = my_list[0]
 		suggestionABV = abvtemp
 		suggestionIBU = ibutemp
 		totalDiff = diff	 
 if(beerinfile == 1):
-	 searchFile.write(str(beer_name)+","+str(BittInd)+","+str(ABVInd)) + "\n"
+	 searchFile.write(str(beer_name)+","+str(BittInd)+","+str(ABVInd) + "\n")
 
 #Print out
 print "Bitterness: " + str(BittInd) + ", ABV: " + str(ABVInd)
+print
 print "The suggested beer for you is " + suggestion + " with a Bitterness of " + str(suggestionIBU) + " and an ABV of " + str(suggestionABV)
 
