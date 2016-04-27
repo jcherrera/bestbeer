@@ -82,17 +82,21 @@ suggestion = '';
 searchFile = open('beer-data-for-predictions.txt','r+')
 for line in searchFile:
 	if(~(beer_name in line)):
-		searchFile.write(str(beer_name)+","+str(BittInd)+","+str(ABVInd))
-	print line
+		beerinfile = 1
 	index = line.index(',')
 	abvtemp=float(line[index+6:])
-	ibutemp=float(line[index+1, index+4])
+	print abvtemp
+	ibutemp=float(line[index+1: index+4])
 	diff = abs(10*(ABVInd-abvtemp)+(BittInd-abvtemp))
 	if(diff<totalDiff):
 		suggestion = line[:index]
+		suggestionABV = abvtemp
+		suggestionIBU = ibutemp
 		totalDiff = diff	 
+if(beerinfile == 1):
+	 searchFile.write(str(beer_name)+","+str(BittInd)+","+str(ABVInd)) + "\n"
 
 #Print out
 print "Bitterness: " + str(BittInd) + ", ABV: " + str(ABVInd)
-print suggestion
+print "The suggested beer for you is " + suggestion + " with a Bitterness of " + str(suggestionIBU) + " and an ABV of " + str(suggestionABV)
 
