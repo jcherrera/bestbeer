@@ -1,0 +1,132 @@
+\hypertarget{classdb__comms_1_1logging_1_1_logger}{}\section{db\+\_\+comms.\+logging.\+Logger Class Reference}
+\label{classdb__comms_1_1logging_1_1_logger}\index{db\+\_\+comms.\+logging.\+Logger@{db\+\_\+comms.\+logging.\+Logger}}
+
+
+A class variable of the session class contains ,ethods for logging any interaction with the database.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classdb__comms_1_1logging_1_1_logger_a1672e537ac888fe88bbe302d134670ab}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, filename)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+def \hyperlink{classdb__comms_1_1logging_1_1_logger_abe4a3d20372a6d263ef604de28981c27}{log\+\_\+command} (self, command)
+\begin{DoxyCompactList}\small\item\em Logs a comms command in log with a timestamp. \end{DoxyCompactList}\item 
+def \hyperlink{classdb__comms_1_1logging_1_1_logger_a04d26741914d63a6cd2e2692d54a3650}{log\+\_\+completion}
+\begin{DoxyCompactList}\small\item\em Logs the success or failure of previous command. \end{DoxyCompactList}\item 
+def \hyperlink{classdb__comms_1_1logging_1_1_logger_ad3a84b9fdf7cc3d5492b0e9b89ef8118}{close\+\_\+log} (self)
+\begin{DoxyCompactList}\small\item\em Closes log file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdb__comms_1_1logging_1_1_logger_a651b4ae05c74a7b82b3e9ff7b216674f}{log}
+\begin{DoxyCompactList}\small\item\em Pinter to the open file. \end{DoxyCompactList}\item 
+\hyperlink{classdb__comms_1_1logging_1_1_logger_a735d5bf523c15134ed3f1a47cb95ebd7}{last\+\_\+command\+\_\+time}
+\begin{DoxyCompactList}\small\item\em Timestamp of last comms command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class variable of the session class contains ,ethods for logging any interaction with the database. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classdb__comms_1_1logging_1_1_logger_a1672e537ac888fe88bbe302d134670ab}{}\index{db\+\_\+comms\+::logging\+::\+Logger@{db\+\_\+comms\+::logging\+::\+Logger}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!db\+\_\+comms\+::logging\+::\+Logger@{db\+\_\+comms\+::logging\+::\+Logger}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+(self, filename)}]{\setlength{\rightskip}{0pt plus 5cm}def db\+\_\+comms.\+logging.\+Logger.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{filename}
+\end{DoxyParamCaption}
+)}\label{classdb__comms_1_1logging_1_1_logger_a1672e537ac888fe88bbe302d134670ab}
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer. \\
+\hline
+{\em filename} & The naem of the log file. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classdb__comms_1_1logging_1_1_logger_ad3a84b9fdf7cc3d5492b0e9b89ef8118}{}\index{db\+\_\+comms\+::logging\+::\+Logger@{db\+\_\+comms\+::logging\+::\+Logger}!close\+\_\+log@{close\+\_\+log}}
+\index{close\+\_\+log@{close\+\_\+log}!db\+\_\+comms\+::logging\+::\+Logger@{db\+\_\+comms\+::logging\+::\+Logger}}
+\subsubsection[{close\+\_\+log(self)}]{\setlength{\rightskip}{0pt plus 5cm}def db\+\_\+comms.\+logging.\+Logger.\+close\+\_\+log (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classdb__comms_1_1logging_1_1_logger_ad3a84b9fdf7cc3d5492b0e9b89ef8118}
+
+
+Closes log file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdb__comms_1_1logging_1_1_logger_abe4a3d20372a6d263ef604de28981c27}{}\index{db\+\_\+comms\+::logging\+::\+Logger@{db\+\_\+comms\+::logging\+::\+Logger}!log\+\_\+command@{log\+\_\+command}}
+\index{log\+\_\+command@{log\+\_\+command}!db\+\_\+comms\+::logging\+::\+Logger@{db\+\_\+comms\+::logging\+::\+Logger}}
+\subsubsection[{log\+\_\+command(self, command)}]{\setlength{\rightskip}{0pt plus 5cm}def db\+\_\+comms.\+logging.\+Logger.\+log\+\_\+command (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{command}
+\end{DoxyParamCaption}
+)}\label{classdb__comms_1_1logging_1_1_logger_abe4a3d20372a6d263ef604de28981c27}
+
+
+Logs a comms command in log with a timestamp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer. \\
+\hline
+{\em command} & The query performed on the database. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdb__comms_1_1logging_1_1_logger_a04d26741914d63a6cd2e2692d54a3650}{}\index{db\+\_\+comms\+::logging\+::\+Logger@{db\+\_\+comms\+::logging\+::\+Logger}!log\+\_\+completion@{log\+\_\+completion}}
+\index{log\+\_\+completion@{log\+\_\+completion}!db\+\_\+comms\+::logging\+::\+Logger@{db\+\_\+comms\+::logging\+::\+Logger}}
+\subsubsection[{log\+\_\+completion}]{\setlength{\rightskip}{0pt plus 5cm}def db\+\_\+comms.\+logging.\+Logger.\+log\+\_\+completion (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{error, }
+\item[{}]{print\+\_\+error = {\ttfamily False}}
+\end{DoxyParamCaption}
+)}\label{classdb__comms_1_1logging_1_1_logger_a04d26741914d63a6cd2e2692d54a3650}
+
+
+Logs the success or failure of previous command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer. \\
+\hline
+{\em error} & The error. =None if successful. \\
+\hline
+{\em print\+\_\+error} & Prints error to stdout if set to True. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classdb__comms_1_1logging_1_1_logger_a735d5bf523c15134ed3f1a47cb95ebd7}{}\index{db\+\_\+comms\+::logging\+::\+Logger@{db\+\_\+comms\+::logging\+::\+Logger}!last\+\_\+command\+\_\+time@{last\+\_\+command\+\_\+time}}
+\index{last\+\_\+command\+\_\+time@{last\+\_\+command\+\_\+time}!db\+\_\+comms\+::logging\+::\+Logger@{db\+\_\+comms\+::logging\+::\+Logger}}
+\subsubsection[{last\+\_\+command\+\_\+time}]{\setlength{\rightskip}{0pt plus 5cm}db\+\_\+comms.\+logging.\+Logger.\+last\+\_\+command\+\_\+time}\label{classdb__comms_1_1logging_1_1_logger_a735d5bf523c15134ed3f1a47cb95ebd7}
+
+
+Timestamp of last comms command. 
+
+\hypertarget{classdb__comms_1_1logging_1_1_logger_a651b4ae05c74a7b82b3e9ff7b216674f}{}\index{db\+\_\+comms\+::logging\+::\+Logger@{db\+\_\+comms\+::logging\+::\+Logger}!log@{log}}
+\index{log@{log}!db\+\_\+comms\+::logging\+::\+Logger@{db\+\_\+comms\+::logging\+::\+Logger}}
+\subsubsection[{log}]{\setlength{\rightskip}{0pt plus 5cm}db\+\_\+comms.\+logging.\+Logger.\+log}\label{classdb__comms_1_1logging_1_1_logger_a651b4ae05c74a7b82b3e9ff7b216674f}
+
+
+Pinter to the open file. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+db\+\_\+comms/\hyperlink{logging_8py}{logging.\+py}\end{DoxyCompactItemize}

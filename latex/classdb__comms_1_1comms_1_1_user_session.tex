@@ -1,0 +1,281 @@
+\hypertarget{classdb__comms_1_1comms_1_1_user_session}{}\section{db\+\_\+comms.\+comms.\+User\+Session Class Reference}
+\label{classdb__comms_1_1comms_1_1_user_session}\index{db\+\_\+comms.\+comms.\+User\+Session@{db\+\_\+comms.\+comms.\+User\+Session}}
+
+
+Session of logged in user.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classdb__comms_1_1comms_1_1_user_session_af0d64e39293129027e9b6b257c3dfe7c}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\begin{DoxyCompactList}\small\item\em Init method. \end{DoxyCompactList}\item 
+def \hyperlink{classdb__comms_1_1comms_1_1_user_session_a1da71c707443828c6af8c32d952977d1}{connect\+\_\+to\+\_\+db} (self)
+\begin{DoxyCompactList}\small\item\em Connects to online postgres database and inits the active\+\_\+conn class variable. \end{DoxyCompactList}\item 
+def \hyperlink{classdb__comms_1_1comms_1_1_user_session_a9a3061ad7fe0c4e3e5d1cdfa303dddfe}{insert\+\_\+row} (self, table, attributes)
+\begin{DoxyCompactList}\small\item\em Inserts row into a table in the database. \end{DoxyCompactList}\item 
+def \hyperlink{classdb__comms_1_1comms_1_1_user_session_a955d49ed6f87fe0032b991cc171f2817}{generate\+\_\+new\+\_\+id} (self, table)
+\begin{DoxyCompactList}\small\item\em Generates a unique id that does not exist yet in a table. \end{DoxyCompactList}\item 
+def \hyperlink{classdb__comms_1_1comms_1_1_user_session_a2a44e3389a6253eb0f4aa8c2a034081d}{fetch\+\_\+id} (self, table, object\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Fetches the tuple from a table with the requested id. \end{DoxyCompactList}\item 
+def \hyperlink{classdb__comms_1_1comms_1_1_user_session_af8538019bc41b79dd46ea88625f32c3a}{sign\+\_\+up\+\_\+user} (self, username, password)
+\begin{DoxyCompactList}\small\item\em Signs up new user and sets the user class variable. \end{DoxyCompactList}\item 
+def \hyperlink{classdb__comms_1_1comms_1_1_user_session_abaa630b994846d5ffd0febcffa30f39b}{login\+\_\+user} (self, username, password)
+\begin{DoxyCompactList}\small\item\em Logs in a user that previouslt signed up and sets the user class variable. \end{DoxyCompactList}\item 
+def \hyperlink{classdb__comms_1_1comms_1_1_user_session_a05b7cbebe11ca82cc32102a3ea9feb95}{get\+\_\+beer\+\_\+rating} (self, beer\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Gets the rating the user gave to a beer. \end{DoxyCompactList}\item 
+def \hyperlink{classdb__comms_1_1comms_1_1_user_session_a708b48a3a3abc80e1dd2b6849b5994a5}{rate\+\_\+beer} (self, beer\+\_\+name, rating)
+\begin{DoxyCompactList}\small\item\em Stores a new rating entry in database. \end{DoxyCompactList}\item 
+def \hyperlink{classdb__comms_1_1comms_1_1_user_session_a8c5c4fb09cf2300d76c57810ebd8fd46}{get\+\_\+favorites} (self)
+\begin{DoxyCompactList}\small\item\em Fetches a list of ratings from the database that have a rating better than 6. \end{DoxyCompactList}\item 
+def \hyperlink{classdb__comms_1_1comms_1_1_user_session_a937ba7bbe7304dd572e1877ae9a7d474}{log\+\_\+out} (self)
+\begin{DoxyCompactList}\small\item\em Logs out user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdb__comms_1_1comms_1_1_user_session_a58e9af88b36c5f977134a1bf8582a85b}{user}
+\begin{DoxyCompactList}\small\item\em Active user. \end{DoxyCompactList}\item 
+\hyperlink{classdb__comms_1_1comms_1_1_user_session_a9b9c02a5d319e0ac74e4550f49905b8a}{active\+\_\+conn}
+\begin{DoxyCompactList}\small\item\em psycog2 connection \end{DoxyCompactList}\item 
+\hyperlink{classdb__comms_1_1comms_1_1_user_session_a1e1b58096ec86a6f03efd0eabe30b7b9}{logger}
+\begin{DoxyCompactList}\small\item\em logger for logging queries and errors \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Session of logged in user. 
+
+A new instance of this class is created every time the program is run. It contains information about the logged in user and methods to interact with the online database. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classdb__comms_1_1comms_1_1_user_session_af0d64e39293129027e9b6b257c3dfe7c}{}\index{db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+(self)}]{\setlength{\rightskip}{0pt plus 5cm}def db\+\_\+comms.\+comms.\+User\+Session.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classdb__comms_1_1comms_1_1_user_session_af0d64e39293129027e9b6b257c3dfe7c}
+
+
+Init method. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classdb__comms_1_1comms_1_1_user_session_a1da71c707443828c6af8c32d952977d1}{}\index{db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}!connect\+\_\+to\+\_\+db@{connect\+\_\+to\+\_\+db}}
+\index{connect\+\_\+to\+\_\+db@{connect\+\_\+to\+\_\+db}!db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}}
+\subsubsection[{connect\+\_\+to\+\_\+db(self)}]{\setlength{\rightskip}{0pt plus 5cm}def db\+\_\+comms.\+comms.\+User\+Session.\+connect\+\_\+to\+\_\+db (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classdb__comms_1_1comms_1_1_user_session_a1da71c707443828c6af8c32d952977d1}
+
+
+Connects to online postgres database and inits the active\+\_\+conn class variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdb__comms_1_1comms_1_1_user_session_a2a44e3389a6253eb0f4aa8c2a034081d}{}\index{db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}!fetch\+\_\+id@{fetch\+\_\+id}}
+\index{fetch\+\_\+id@{fetch\+\_\+id}!db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}}
+\subsubsection[{fetch\+\_\+id(self, table, object\+\_\+id)}]{\setlength{\rightskip}{0pt plus 5cm}def db\+\_\+comms.\+comms.\+User\+Session.\+fetch\+\_\+id (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{table, }
+\item[{}]{object\+\_\+id}
+\end{DoxyParamCaption}
+)}\label{classdb__comms_1_1comms_1_1_user_session_a2a44e3389a6253eb0f4aa8c2a034081d}
+
+
+Fetches the tuple from a table with the requested id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer. \\
+\hline
+{\em table} & The name of the table. \\
+\hline
+{\em object\+\_\+id} & The id of the entry we wish to retrieve \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdb__comms_1_1comms_1_1_user_session_a955d49ed6f87fe0032b991cc171f2817}{}\index{db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}!generate\+\_\+new\+\_\+id@{generate\+\_\+new\+\_\+id}}
+\index{generate\+\_\+new\+\_\+id@{generate\+\_\+new\+\_\+id}!db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}}
+\subsubsection[{generate\+\_\+new\+\_\+id(self, table)}]{\setlength{\rightskip}{0pt plus 5cm}def db\+\_\+comms.\+comms.\+User\+Session.\+generate\+\_\+new\+\_\+id (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{table}
+\end{DoxyParamCaption}
+)}\label{classdb__comms_1_1comms_1_1_user_session_a955d49ed6f87fe0032b991cc171f2817}
+
+
+Generates a unique id that does not exist yet in a table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer. \\
+\hline
+{\em table} & The name of the table. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdb__comms_1_1comms_1_1_user_session_a05b7cbebe11ca82cc32102a3ea9feb95}{}\index{db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}!get\+\_\+beer\+\_\+rating@{get\+\_\+beer\+\_\+rating}}
+\index{get\+\_\+beer\+\_\+rating@{get\+\_\+beer\+\_\+rating}!db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}}
+\subsubsection[{get\+\_\+beer\+\_\+rating(self, beer\+\_\+name)}]{\setlength{\rightskip}{0pt plus 5cm}def db\+\_\+comms.\+comms.\+User\+Session.\+get\+\_\+beer\+\_\+rating (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{beer\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{classdb__comms_1_1comms_1_1_user_session_a05b7cbebe11ca82cc32102a3ea9feb95}
+
+
+Gets the rating the user gave to a beer. 
+
+Queries the ratings table of the database looking for entries that match the user id of the current session and the beer name. Returns a integer from 0-\/10 or None if no rating is found. 
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer. \\
+\hline
+{\em beer\+\_\+name} & The name of the beer that was possibly rated. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdb__comms_1_1comms_1_1_user_session_a8c5c4fb09cf2300d76c57810ebd8fd46}{}\index{db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}!get\+\_\+favorites@{get\+\_\+favorites}}
+\index{get\+\_\+favorites@{get\+\_\+favorites}!db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}}
+\subsubsection[{get\+\_\+favorites(self)}]{\setlength{\rightskip}{0pt plus 5cm}def db\+\_\+comms.\+comms.\+User\+Session.\+get\+\_\+favorites (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classdb__comms_1_1comms_1_1_user_session_a8c5c4fb09cf2300d76c57810ebd8fd46}
+
+
+Fetches a list of ratings from the database that have a rating better than 6. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdb__comms_1_1comms_1_1_user_session_a9a3061ad7fe0c4e3e5d1cdfa303dddfe}{}\index{db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}!insert\+\_\+row@{insert\+\_\+row}}
+\index{insert\+\_\+row@{insert\+\_\+row}!db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}}
+\subsubsection[{insert\+\_\+row(self, table, attributes)}]{\setlength{\rightskip}{0pt plus 5cm}def db\+\_\+comms.\+comms.\+User\+Session.\+insert\+\_\+row (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{table, }
+\item[{}]{attributes}
+\end{DoxyParamCaption}
+)}\label{classdb__comms_1_1comms_1_1_user_session_a9a3061ad7fe0c4e3e5d1cdfa303dddfe}
+
+
+Inserts row into a table in the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer \\
+\hline
+{\em table} & The name of the table being inserted into \\
+\hline
+{\em $\ast$attributes} & The list of attributes in the new entry \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdb__comms_1_1comms_1_1_user_session_a937ba7bbe7304dd572e1877ae9a7d474}{}\index{db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}!log\+\_\+out@{log\+\_\+out}}
+\index{log\+\_\+out@{log\+\_\+out}!db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}}
+\subsubsection[{log\+\_\+out(self)}]{\setlength{\rightskip}{0pt plus 5cm}def db\+\_\+comms.\+comms.\+User\+Session.\+log\+\_\+out (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classdb__comms_1_1comms_1_1_user_session_a937ba7bbe7304dd572e1877ae9a7d474}
+
+
+Logs out user. 
+
+\hypertarget{classdb__comms_1_1comms_1_1_user_session_abaa630b994846d5ffd0febcffa30f39b}{}\index{db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}!login\+\_\+user@{login\+\_\+user}}
+\index{login\+\_\+user@{login\+\_\+user}!db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}}
+\subsubsection[{login\+\_\+user(self, username, password)}]{\setlength{\rightskip}{0pt plus 5cm}def db\+\_\+comms.\+comms.\+User\+Session.\+login\+\_\+user (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{username, }
+\item[{}]{password}
+\end{DoxyParamCaption}
+)}\label{classdb__comms_1_1comms_1_1_user_session_abaa630b994846d5ffd0febcffa30f39b}
+
+
+Logs in a user that previouslt signed up and sets the user class variable. 
+
+First checks that the username exists. If it does then checks if the password matches. Once both are verified user variable is set. 
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer. \\
+\hline
+{\em username} & The username supplied by the user. \\
+\hline
+{\em password} & The password supplied by the user. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdb__comms_1_1comms_1_1_user_session_a708b48a3a3abc80e1dd2b6849b5994a5}{}\index{db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}!rate\+\_\+beer@{rate\+\_\+beer}}
+\index{rate\+\_\+beer@{rate\+\_\+beer}!db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}}
+\subsubsection[{rate\+\_\+beer(self, beer\+\_\+name, rating)}]{\setlength{\rightskip}{0pt plus 5cm}def db\+\_\+comms.\+comms.\+User\+Session.\+rate\+\_\+beer (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{beer\+\_\+name, }
+\item[{}]{rating}
+\end{DoxyParamCaption}
+)}\label{classdb__comms_1_1comms_1_1_user_session_a708b48a3a3abc80e1dd2b6849b5994a5}
+
+
+Stores a new rating entry in database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer. \\
+\hline
+{\em rating} & The rating value int up to 10. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classdb__comms_1_1comms_1_1_user_session_af8538019bc41b79dd46ea88625f32c3a}{}\index{db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}!sign\+\_\+up\+\_\+user@{sign\+\_\+up\+\_\+user}}
+\index{sign\+\_\+up\+\_\+user@{sign\+\_\+up\+\_\+user}!db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}}
+\subsubsection[{sign\+\_\+up\+\_\+user(self, username, password)}]{\setlength{\rightskip}{0pt plus 5cm}def db\+\_\+comms.\+comms.\+User\+Session.\+sign\+\_\+up\+\_\+user (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{username, }
+\item[{}]{password}
+\end{DoxyParamCaption}
+)}\label{classdb__comms_1_1comms_1_1_user_session_af8538019bc41b79dd46ea88625f32c3a}
+
+
+Signs up new user and sets the user class variable. 
+
+The function first checks to make sure the username is not taken. If it\textquotesingle{}s free, then the user is added to the database and can now log in. 
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer. \\
+\hline
+{\em username} & The username requested by the user. \\
+\hline
+{\em password} & The password requested by the user. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classdb__comms_1_1comms_1_1_user_session_a9b9c02a5d319e0ac74e4550f49905b8a}{}\index{db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}!active\+\_\+conn@{active\+\_\+conn}}
+\index{active\+\_\+conn@{active\+\_\+conn}!db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}}
+\subsubsection[{active\+\_\+conn}]{\setlength{\rightskip}{0pt plus 5cm}db\+\_\+comms.\+comms.\+User\+Session.\+active\+\_\+conn}\label{classdb__comms_1_1comms_1_1_user_session_a9b9c02a5d319e0ac74e4550f49905b8a}
+
+
+psycog2 connection 
+
+\hypertarget{classdb__comms_1_1comms_1_1_user_session_a1e1b58096ec86a6f03efd0eabe30b7b9}{}\index{db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}!logger@{logger}}
+\index{logger@{logger}!db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}}
+\subsubsection[{logger}]{\setlength{\rightskip}{0pt plus 5cm}db\+\_\+comms.\+comms.\+User\+Session.\+logger}\label{classdb__comms_1_1comms_1_1_user_session_a1e1b58096ec86a6f03efd0eabe30b7b9}
+
+
+logger for logging queries and errors 
+
+\hypertarget{classdb__comms_1_1comms_1_1_user_session_a58e9af88b36c5f977134a1bf8582a85b}{}\index{db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}!user@{user}}
+\index{user@{user}!db\+\_\+comms\+::comms\+::\+User\+Session@{db\+\_\+comms\+::comms\+::\+User\+Session}}
+\subsubsection[{user}]{\setlength{\rightskip}{0pt plus 5cm}db\+\_\+comms.\+comms.\+User\+Session.\+user}\label{classdb__comms_1_1comms_1_1_user_session_a58e9af88b36c5f977134a1bf8582a85b}
+
+
+Active user. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+db\+\_\+comms/\hyperlink{comms_8py}{comms.\+py}\end{DoxyCompactItemize}

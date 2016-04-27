@@ -1,3 +1,6 @@
+## @package db_comms.comms
+#  Methods for communicating with postgresql database.
+#
 import os
 import psycopg2
 import urlparse
@@ -6,12 +9,23 @@ from settings_local import *
 from data_model import *
 from logging import *
 
+## Session of logged in user
+#
+#  A new instance of this class is created every time the program is run.
+#  It contains information about the logged in user and methods to interact with
+#  the online database.
 class UserSession:
+	## Init method
     def __init__(self):
+		## Active user
         self.user = None
+		## psycog2 connection
         self.active_conn = None
+		## logger for logging queries and errors
         self.logger = Logger(LOG_FILENAME)
 
+	## Connects to online postgres database and inits the active_conn class variable
+	#  @param self The object pointer.
     def connect_to_db(self):
         urlparse.uses_netloc.append("postgres")
         url = urlparse.urlparse(DATABASE_URL)
@@ -31,7 +45,10 @@ class UserSession:
         else:
             self.logger.log_completion(None)
         
-    
+    ## Inserts row into a table in the database.
+	#  @param self The object pointer
+	#  @param table The name of the table being inserted into
+	#  @param *attributes The list of attributes in the new entry
     def insert_row(self, table, *attributes):
         insert_statement = """INSERT INTO {} VALUES {};""".format(table, str(attributes))
     
@@ -45,6 +62,9 @@ class UserSession:
         else:
             self.logger.log_completion(None)
     
+	## Generates a unique id that does not exist yet in a table.
+	#  @param self The object pointer.
+	#  @param table The name of the table.
     def generate_new_id(self, table):
         cur = self.active_conn.cursor()
     
@@ -57,6 +77,10 @@ class UserSession:
     
         return object_id
 
+	## Fetches the tuple from a table with the requested id.
+	#  @param self The object pointer.
+	#  @param table The name of the table.
+	#  @param object_id The id of the entry we wish to retrieve
     def fetch_id(self, table, object_id):
         cur = self.active_conn.cursor()
 
@@ -69,10 +93,13 @@ class UserSession:
 
         return result
         
-    
+    ## Signs up new user and sets the user class variable.
+	#  The function first checks to make sure the username is not taken. If it's free, then
+	#  the user is added to the database and can now log in.
+	#  @param self The object pointer.
+	#  @param username The username requested by the user.
+	#  @param password The password requested by the user.
     def sign_up_user(self, username, password):
-        if self.active_conn == None:
-            connect_to_db()
     
         cur = self.active_conn.cursor()
     
@@ -97,6 +124,12 @@ class UserSession:
         self.logger.log_command("User successfully signed up")
         return 0
 
+	## Logs in a user that previouslt signed up and sets the user class variable.
+	#  First checks that the username exists. If it does then checks if the password matches.
+	#  Once both are verified user variable is set.
+	#  @param self The object pointer.
+	#  @param username The username supplied by the user.
+	#  @param password The password supplied by the user.
     def login_user(self, username, password):
 
         cur = self.active_conn.cursor()
@@ -124,6 +157,12 @@ class UserSession:
 
         return 0
 
+	## Gets the rating the user gave to a beer.
+	#  Queries the ratings table of the database looking for entries that match the user id of
+	#  the current session and the beer name. Returns a integer from 0-10 or None if no
+	#  rating is found.
+	#  @param self The object pointer.
+	#  @param beer_name The name of the beer that was possibly rated.
     def get_beer_rating(self, beer_name):
         
         cur = self.active_conn.cursor()
@@ -140,14 +179,17 @@ class UserSession:
         else:
             return None
 
-
+	## Stores a new rating entry in database
+	#  @param self The object pointer.
+	#  @param rating The rating value int up to 10.
     def rate_beer(self, beer_name, rating):
         
         self.insert_row("ratings", beer_name, rating, self.user.id)
 
         return
 
-
+	## Fetches a list of ratings from the database that have a rating better than 6.
+	#  @param self The object pointer.
     def get_favorites(self):
 
         cur = self.active_conn.cursor()
@@ -160,4 +202,9 @@ class UserSession:
         favorites = cur.fetchall()
 
         return favorites
+
+    ## Logs out user.
+    def log_out(self):
+        self.user = None
+
 
