@@ -2,7 +2,7 @@ Heineken,18.0,4.4
 Lados Ipa,40.5,5.3
 Corona,17.1,4.7
 87 Peroni Pilsner,29.8,4.9
-Caskolsch Pale Ale,34.6,ABV
+Caskolsch Pale Ale,34.6,5.4
 Coors Lite,13.2,3.2
 Asahi,32.5,4.6
 Miller German Pilsener,26.8,4.5
