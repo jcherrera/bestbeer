@@ -64,9 +64,9 @@ trs = soup.find_all('tr')
 BittInd = 0;
 ABVInd = 0;
 for i in range(0,(len(trs)-1)):
-	if 'Bitterness' in str(trs[i]):
+	if 'Bitterness Value' in str(trs[i]):
 		BittInd = i
-	if 'ABV' in str(trs[i]):
+	if 'ABV Value:' in str(trs[i]):
 		ABVInd = i;
 
 #Find a similar beer 
