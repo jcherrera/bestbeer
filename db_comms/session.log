@@ -1,0 +1,19 @@
+[13/04/2016] [13:00:02] - Session started
+[13:00:17] Connecting to database
+Completed in 0.00378 seconds
+[13:00:18] SELECT DISTINCT * FROM users WHERE UPPER(username) LIKE UPPER('%user4%') 
+Completed in 0.000266 seconds
+Error: Username incorrect
+[13:00:29] Connecting to database
+Completed in 0.002454 seconds
+[13:00:33] SELECT DISTINCT username FROM users WHERE UPPER(username) LIKE UPPER('%user4%') 
+Error: SELECT DISTINCT username FROM users WHERE UPPER(username) LIKE UPPER('%user4%') 
+[13:00:33] SELECT DISTINCT id FROM users WHERE id=2356
+Completed in 0.000116 seconds
+[13:00:33] SELECT DISTINCT id FROM accounts WHERE id=5433
+Completed in 0.000119 seconds
+[13:00:33] INSERT INTO users VALUES (2356, 'user4', 'password4', 5433);
+Completed in 0.000121 seconds
+[13:00:33] INSERT INTO accounts VALUES (5433, 2356);
+Completed in 0.000115 seconds
+[13:00:33] User successfully signed up
