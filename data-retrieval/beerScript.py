@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import urllib2
 import re
 import sys
-import mysql.connector
 
 
 
@@ -57,26 +56,43 @@ while(True):
 #Extracts the html of the chosen beer url are stores it into html.
 html = urllib2.urlopen(search)
 soup = BeautifulSoup(html.read())
-print '\n' + url_to_beer_name(search) + '\n'
+beer_name = url_to_beer_name(search)
+print '\n' + beer_name + '\n'
+
 
 #Finds the Bitterness and ABV values for the appropriate beer and prints it out
 trs = soup.find_all('tr')
 BittInd = 0;
 ABVInd = 0;
 for i in range(0,(len(trs)-1)):
-	if 'Bitterness Value' in str(trs[i]):
+	if 'Bitterness' in str(trs[i]):
 		BittInd = i
-	if 'ABV Value:' in str(trs[i]):
+	if 'ABV:' in str(trs[i]):
 		ABVInd = i;
+temp = str(trs[BittInd].find_all('td')[0])
+BittInd= float(re.search(r'\d+\.\d',temp).group())
+temp = str(trs[ABVInd].find_all('td')[0])
+ABVInd = float(re.search(r'\d+\.\d',temp).group())
 
-#Find a similar beer 
-suggestion = "\nWe could not find a suggested beer for you. Try another query."
-if BittInd == 22.8:
-	suggestion = "You Should try a Heineken"
+
+#Find a similar beer
+beerinfile = 0;
+totalDiff = 100000;
+suggestion = '';
+searchFile = open('beer-data-for-predictions.txt','r+')
+for line in searchFile:
+	if(~(beer_name in line)):
+		searchFile.write(str(beer_name)+","+str(BittInd)+","+str(ABVInd))
+	print line
+	index = line.index(',')
+	abvtemp=float(line[index+6:])
+	ibutemp=float(line[index+1, index+4])
+	diff = abs(10*(ABVInd-abvtemp)+(BittInd-abvtemp))
+	if(diff<totalDiff):
+		suggestion = line[:index]
+		totalDiff = diff	 
 
 #Print out
-out = str((trs[BittInd].find_all('td'))[0])+'\n' + str((trs[ABVInd].find_all('td'))[0])
-regex = re.compile('<.{0,4}>')
-print regex.sub('',out)
+print "Bitterness: " + str(BittInd) + ", ABV: " + str(ABVInd)
 print suggestion
 
